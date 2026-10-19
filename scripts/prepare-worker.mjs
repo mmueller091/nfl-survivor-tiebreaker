@@ -1,6 +1,10 @@
 import fs from 'node:fs';
 
-const { NFL_WORKER_NAME, CLOUDFLARE_D1_DATABASE_ID, SITE_URL } = process.env;
+const NFL_WORKER_NAME = process.env.NFL_WORKER_NAME || 'nfl-survivor-tiebreaker';
+const CLOUDFLARE_D1_DATABASE_ID =
+  process.env.CLOUDFLARE_D1_DATABASE_ID || '227af770-8ac7-47a0-918a-37eea253e46f';
+const SITE_URL =
+  process.env.SITE_URL || 'https://nfl-survivor-tiebreaker.mmueller918.workers.dev';
 if (!NFL_WORKER_NAME || !/^[a-z0-9-]+$/.test(NFL_WORKER_NAME))
   throw new Error('Set NFL_WORKER_NAME to a lowercase Worker name.');
 if (!CLOUDFLARE_D1_DATABASE_ID)
